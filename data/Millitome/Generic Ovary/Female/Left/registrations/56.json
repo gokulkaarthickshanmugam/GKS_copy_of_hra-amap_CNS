@@ -2,19 +2,19 @@
 	"@context": "https://hubmapconsortium.github.io/ccf-ontology/ccf-context.jsonld",
 	"@id": "https://purl.humanatlas.io/millitome/generic-ovary-female-left#56",
 	"@type": "SpatialEntity",
-	"creator": "Bhargav Snehal Desai",
-	"creator_first_name": "Bhargav Snehal",
-	"creator_last_name": "Desai",
-	"creator_orcid": "https://orcid.org/0009-0008-6509-7698",
+	"creator": "Gokul Kaarthick Shanmugam",
+	"creator_first_name": "Gokul Kaarthick",
+	"creator_last_name": "Shanmugam",
+	"creator_orcid": "https://orcid.org/0009-0004-9655-9278",
 	"label": "56",
-	"creation_date": "2024-08-23",
+	"creation_date": "2025-02-11",
 	"dimension_units": "millimeter",
 	"placement": {
 		"@context": "https://hubmapconsortium.github.io/ccf-ontology/ccf-context.jsonld",
 		"@id": "https://purl.humanatlas.io/millitome/generic-ovary-female-left#56_placement",
 		"@type": "SpatialPlacement",
 		"target": "http://purl.org/ccf/latest/ccf.owl#VHFLeftOvary",
-		"placement_date": "2024-08-23",
+		"placement_date": "2025-02-11",
 		"scaling_units": "ratio",
 		"rotation_order": "XYZ",
 		"rotation_units": "degree",
@@ -25,11 +25,11 @@
 		"x_rotation": 0.0,
 		"y_rotation": 0.0,
 		"z_rotation": 0.0,
-		"x_translation": 5.860099013406974,
-		"y_translation": 12.627621427971015,
-		"z_translation": 6.993682020697483
+		"x_translation": 8.215196288850535,
+		"y_translation": -0.9388765463210664,
+		"z_translation": 10.61906806496403
 	},
-	"x_dimension": 4.38230535484644,
-	"y_dimension": 5.075221989463606,
-	"z_dimension": 4.583392557719758
+	"x_dimension": 0.0306883528670282,
+	"y_dimension": 0.016634931597862834,
+	"z_dimension": 0.0047213345693297715
 }

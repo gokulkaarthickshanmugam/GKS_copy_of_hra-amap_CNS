@@ -7,14 +7,14 @@
 	"creator_last_name": "Desai",
 	"creator_orcid": "https://orcid.org/0009-0008-6509-7698",
 	"label": "29",
-	"creation_date": "2024-08-23",
+	"creation_date": "2025-02-11",
 	"dimension_units": "millimeter",
 	"placement": {
 		"@context": "https://hubmapconsortium.github.io/ccf-ontology/ccf-context.jsonld",
 		"@id": "https://purl.humanatlas.io/millitome/generic-ovary-female-right#29_placement",
 		"@type": "SpatialPlacement",
 		"target": "http://purl.org/ccf/latest/ccf.owl#VHFRightOvary",
-		"placement_date": "2024-08-23",
+		"placement_date": "2025-02-11",
 		"scaling_units": "ratio",
 		"rotation_order": "XYZ",
 		"rotation_units": "degree",
@@ -25,11 +25,11 @@
 		"x_rotation": 0.0,
 		"y_rotation": 0.0,
 		"z_rotation": 0.0,
-		"x_translation": 4.472042774708945,
-		"y_translation": 22.00160485454688,
-		"z_translation": 4.456074659130921
+		"x_translation": 12.519212224328397,
+		"y_translation": 4.559650032829498,
+		"z_translation": 5.674423212163049
 	},
-	"x_dimension": 2.918374821362063,
-	"y_dimension": 2.5983232753939154,
-	"z_dimension": 3.9995934884108353
+	"x_dimension": 2.1122019583904166,
+	"y_dimension": 2.1739176476731,
+	"z_dimension": 2.6755803389266335
 }

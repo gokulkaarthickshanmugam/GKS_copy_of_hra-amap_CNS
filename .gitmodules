@@ -1,0 +1,3 @@
+[submodule "bcpd"]
+	path = bcpd
+	url = https://github.com/ohirose/bcpd

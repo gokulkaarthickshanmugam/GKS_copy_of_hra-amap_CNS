@@ -1,7 +1,7 @@
 import subprocess
 import numpy as np
 import open3d as o3d
-
+import os
 from decorators import step
 from dataclass import Transform
 from utils.conversions import pointcloud_to_numpy, numpy_to_pointcloud, txt_to_numpy, pointcloud_to_mesh
@@ -148,8 +148,8 @@ def nonrigid_registration(source, target, params):
         reigstration_args.extend(['-D', str(params['downsampling'])])
 
     # register using BCPD
-    result = subprocess.run(reigstration_args, cwd="../bcpd", capture_output=True)
-    
+    result = subprocess.run(reigstration_args, cwd=f"../bcpd", capture_output=True)
+ 
     # read transformations
     if 'downsampling' in params:
         downsampled_source = np.genfromtxt('../bcpd/output_normY.txt')
