@@ -8,7 +8,7 @@ Files I have played around:
 
    In this whole pipeline I havent messed around with BPCD in any manner.
 
-One very obvious optimization I made is to directory paths and its usecases. In a way for everyone can just deploy and run. I have written a base setup script to reduce the manual tasks by the person setting it up and reducing the human error and improve productivity.
+One very obvious optimization I made is to directory paths are made generic and its usecases. In a way for everyone can just deploy and run. I have written a base setup script to reduce the manual tasks by the person setting it up and reducing the human error and improve productivity.
 
 The generated projections are stored in:
 /results/Projections/Backward/VHM_LeftKidney_projections-*
