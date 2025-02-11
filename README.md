@@ -1,47 +1,41 @@
-# HRA-AMap - Bidirectional Projections Between Human Atlas Systems for Data and Code Interoperability
+# HRA-AMap
 
-Code for AMap project. 
+Files I have played around:
+1. Usage.ipynb
+2. Millitome.ipynb
+3. Bidirectional Projections.ipynb
+4. Registration Error Visualization.ipynb
 
-This repository aims to enable projection of tissue blocks registrered to a source organ to a new reference organ (usually the Human Reference Atlas, part of HuBMAP). 
+   In this whole pipeline I havent messed around with BPCD in any manner.
 
-### Setup instructions:
+One very obvious optimization I made is to directory paths are made generic and its usecases. In a way for everyone can just deploy and run. I have written a base setup script to reduce the manual tasks by the person setting it up and reducing the human error and improve productivity.
 
-1. Clone the repository with ```git clone https://github.com/cns-iu/hra-amap.git```
+The generated projections are stored in:
+/results/Projections/Backward/VHM_LeftKidney_projections-*
+/results/Projections/Backward/VHM_RightKidney_projections-*
 
-2. Inside the cloned ```hra-amap``` repostisory, clone ``bcpd`` repository (```https://github.com/ohirose/bcpd```) with ```git clone https://github.com/ohirose/bcpd.git```. This implements the Bayesian Coherent Point Drift algorithm based on the following paper [A Bayesian Formulation of Coherent Point Drift](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8985307). The repository is ~1GB in file size hence it is not shipped with our repository and requires additional setup: 
+dir should have the pkl file (projections.pickle)
 
-    * For Windows
+# Issues Faced :
 
-       1. No setup required.  
+1. FileNotFoundError: bcpd executable missing
+   Fix:
+      •	Verified bcpd was properly built and executable.
+	   •	Ensured the correct path was set for cwd in subprocess.run().
+	   •	Used os.path.abspath("bcpd") instead of relative paths.
 
-    * For MacOS and Linux
+2. Path Issues in Subprocess Calls: Using cwd="bcpd" caused issues when running the script from different directories.
+   Fix: Updated cwd to an absolute path
 
-        1. Install the OpenMP and the LAPACK libraries if not installed. For MacOS, make sure XCode is installed. OpenMP can then be installed with the ```homebrew``` package manager (```https://brew.sh```) followed by ```brew install libomp```
+3. Missing Dependencies: bcpd required additional setup before execution.
+   Fix: Built bcpd using make and validated dependencies.
 
-        2. Type ```make OPT=-DUSE_OPENMP ENV=<your-environment>```. Substitute ```<uyour-environment>``` with ```LINUX``` for Linux, ```HOMEBREW_INTEL``` for Intel Macs and ```HOMEBREW``` for Macs with Apple Silicon. In case of a ```clang``` error during installation for MacOS, ensure to check if the ```makefile``` within the ```bcpd``` repository is pointing to the correct path for ```libomp.dylib```. In newer Macs, the correct path should be ```/opt/homebrew/Cellar/libomp/19.1.7/lib/libomp.dylib```. Note that current libomp version is 19.1.7, but the library version might different depending on the time of installation. 
+4. Additionally, I had a git submodule Issue (Maybe dump thing to note it but it was new thing that I learned repo within repo causing issues during the git push)
+   Fix: I had to remove the repo dir (git rm --cached bcpd -r) (Thanks to chatgpt)
+   
+# Fixes Addressed :
 
-3. We recommend creating a virtual environment using [```miniconda```] (https://docs.anaconda.com/miniconda/install/) or [```anaconda``` ](https://docs.anaconda.com/anaconda/install/). The recommended Python version is 3.12.x. Create and activate environment using the following commands on a shell:
-
-```
-# create
-conda create -n amap python=3.12
-
-# activate
-conda activate amap
-```
-
-4. After activating the environment, install the following libraries:
-
-```
-pip install trimesh
-pip install pyyaml
-pip install open3d
-pip install pyvista
-pip install point-cloud-utils
-pip install rtree
-pip install seaborn
-```
-
-5. To run a quick registration using the provided pipeline, please see ```notebooks/Usage.ipynb```. Make sure to set appropriate parts in the code on your local system. 
-
-6. Additionally, to create RUI JSONs for Millitomes (as shown in `Millitome.ipynb`), one needs to install [Node.js] (https://nodejs.org/en/download/) and run ```npx github:hubmapconsortium/hra-rui-locations-processor help```
+1. I have handled errors in some scenarios whereever it could be potentially help us mitigate the solution, Like whenever we try to create an pre existing projections is one such scenario
+2. (Not Implemented) Parallel Execution for Faster Processing to reduce execution time.
+3.  Automate Projection File Naming process customized based on the scenario we can create switch like scenario in here
+4.  I have written a base setup script which can be automated much more in a way that user have to just run the setup script to start working rather doing all the manual steps reading documentation. Would be much preffered by lazy developers like me :)
